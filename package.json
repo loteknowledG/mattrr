@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit --pretty false"
   },
   "dependencies": {
+    "@ascii-kit/fonts": "^0.0.6",
     "effect": "^3.22.2",
     "solid-js": "^1.9.15"
   },
