@@ -6,9 +6,9 @@
   "packageManager": "pnpm@12.4.1",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc -b --pretty false"
+    "typecheck": "tsc --noEmit --pretty false"
   },
   "dependencies": {
     "effect": "^3.22.2",
