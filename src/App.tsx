@@ -1,15 +1,6 @@
-import { createMemo, createSignal, For } from "solid-js";
-import type { ArtifactKind } from "./core/artifact";
-
-const artifactKinds: readonly ArtifactKind[] = [
-  "ascii",
-  "component",
-  "text",
-  "ui",
-];
+import { createMemo, createSignal } from "solid-js";
 
 export default function App() {
-  const [kind, setKind] = createSignal<ArtifactKind>("ascii");
   const [prompt, setPrompt] = createSignal("");
 
   const status = createMemo(() =>
@@ -34,20 +25,6 @@ export default function App() {
           <h2 id="workbench-title">Scratchpad</h2>
         </div>
 
-        <nav class="kind-rail" aria-label="Artifact kind">
-          <For each={artifactKinds}>
-            {(artifactKind) => (
-              <button
-                type="button"
-                classList={{ active: kind() === artifactKind }}
-                onClick={() => setKind(artifactKind)}
-              >
-                {artifactKind}
-              </button>
-            )}
-          </For>
-        </nav>
-
         <label class="prompt-field">
           <span>Describe what Mattrr should make</span>
           <textarea
@@ -58,7 +35,6 @@ export default function App() {
         </label>
 
         <footer class="bench-footer">
-          <span>target: {kind()}</span>
           <span>solid + typescript + effect</span>
         </footer>
       </section>
