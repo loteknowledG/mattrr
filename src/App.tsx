@@ -46,6 +46,20 @@ export default function App() {
         <div class="console-grid">
           <aside class="font-bank" aria-label="ASCII font selector">
             <div class="rail-heading"><span>01</span><h2 id="console-title">FONT BANK</h2></div>
+            <label class="material-input">
+              <span>INPUT MATERIAL</span>
+              <div>
+                <b aria-hidden="true">&gt;</b>
+                <textarea
+                  value={text()}
+                  maxlength="36"
+                  rows="3"
+                  spellcheck={false}
+                  onInput={(event) => setText(event.currentTarget.value.toUpperCase())}
+                  aria-label="ASCII specimen text"
+                />
+              </div>
+            </label>
             <For each={fontDecks}>{(deck, index) => (
               <button type="button" classList={{ selected: fontId() === deck.id }} onClick={() => setFontId(deck.id)}>
                 <span>{String(index() + 1).padStart(2, "0")}</span><strong>{deck.label}</strong><i aria-hidden="true" />
@@ -56,10 +70,18 @@ export default function App() {
           <div class="display-stack">
             <div class="display-label"><span>ACTIVE DECK / {selected().label}</span><span>FIGFONT // ASCII-KIT</span></div>
             <div class="specimen-window"><div class="scanline" aria-hidden="true" /><pre aria-live="polite">{specimen()}</pre></div>
-            <label class="material-input">
-              <span>INPUT MATERIAL</span>
-              <div><b aria-hidden="true">&gt;</b><input value={text()} maxlength="18" spellcheck={false}
-                onInput={(event) => setText(event.currentTarget.value.toUpperCase())} aria-label="ASCII specimen text" /></div>
+            <label class="quick-input">
+              <span>QUICK INPUT</span>
+              <div>
+                <b aria-hidden="true">&gt;</b>
+                <input
+                  value={text()}
+                  maxlength="18"
+                  spellcheck={false}
+                  onInput={(event) => setText(event.currentTarget.value.toUpperCase())}
+                  aria-label="Quick ASCII specimen text"
+                />
+              </div>
             </label>
           </div>
         </div>
