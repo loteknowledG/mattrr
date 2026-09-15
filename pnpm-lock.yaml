@@ -166,9 +166,15 @@ importers:
 
   .:
     dependencies:
+      '@ascii-kit/fonts':
+        specifier: ^0.0.6
+        version: 0.0.6
       effect:
         specifier: ^3.22.2
         version: 3.22.2
+      figlet:
+        specifier: ^1.11.4
+        version: 1.11.4
       solid-js:
         specifier: ^1.9.15
         version: 1.9.15
@@ -184,6 +190,9 @@ importers:
         version: 2.11.14(solid-js@1.9.15)(vite@8.3.0)
 
 packages:
+
+  '@ascii-kit/fonts@0.0.6':
+    resolution: {integrity: sha512-BQc6n0mSpVwKqu/qUq1i/0aC8slCHiRtlh3sn4iH0n7uKV7NT2AVTvaAfLk5MdWOazOu8qWTGH/iJiJ0i3fr1A==}
 
   '@babel/code-frame@7.29.7':
     resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
@@ -546,6 +555,10 @@ packages:
   caniuse-lite@1.0.30001810:
     resolution: {integrity: sha512-TITQPUkaz+aVk5GL6NhOdwk1aEaNTSDPsGFWrTuhKGtjTF70jL/Oht2W4c6rXUe5fu7Ie19VIahAXHIIiWWNeg==}
 
+  commander@14.0.3:
+    resolution: {integrity: sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw==}
+    engines: {node: '>=20'}
+
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
@@ -591,6 +604,11 @@ packages:
     peerDependenciesMeta:
       picomatch:
         optional: true
+
+  figlet@1.11.4:
+    resolution: {integrity: sha512-ZU41480OncL+NVLQrT0GVnbO0COL24sLSrzksioDgunmdJNYEUxhJJZ4Y3x1csN8XXqN5OcCZTLG8lKdquNyfQ==}
+    engines: {node: '>= 17.0.0'}
+    hasBin: true
 
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
@@ -842,6 +860,8 @@ packages:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
 
 snapshots:
+
+  '@ascii-kit/fonts@0.0.6': {}
 
   '@babel/code-frame@7.29.7':
     dependencies:
@@ -1133,6 +1153,8 @@ snapshots:
 
   caniuse-lite@1.0.30001810: {}
 
+  commander@14.0.3: {}
+
   convert-source-map@2.0.0: {}
 
   csstype@3.2.3: {}
@@ -1161,6 +1183,10 @@ snapshots:
   fdir@6.5.0(picomatch@4.0.7):
     optionalDependencies:
       picomatch: 4.0.7
+
+  figlet@1.11.4:
+    dependencies:
+      commander: 14.0.3
 
   fsevents@2.3.3:
     optional: true
