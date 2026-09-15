@@ -1,0 +1,182 @@
+:root {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  color: #e8edf2;
+  background: #080a0d;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    #080a0d;
+  background-size: 24px 24px;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+.shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 64px;
+}
+
+.masthead,
+.section-heading,
+.bench-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.masthead {
+  padding: 22px 24px;
+  border: 1px solid #2b3138;
+  border-bottom: 4px solid #2b3138;
+  background: #0d1116;
+}
+
+.eyebrow,
+.section-heading span,
+.status,
+.bench-footer {
+  color: #8d99a6;
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  margin-top: 4px;
+  font-size: clamp(2.6rem, 9vw, 6.6rem);
+  line-height: 0.88;
+  letter-spacing: -0.08em;
+}
+
+.status {
+  padding: 8px 10px;
+  border: 1px solid #39424b;
+  white-space: nowrap;
+}
+
+.workbench {
+  margin-top: 18px;
+  border: 1px solid #2b3138;
+  background: rgba(13, 17, 22, 0.94);
+}
+
+.section-heading {
+  padding: 16px 18px;
+  border-bottom: 1px solid #2b3138;
+}
+
+.section-heading h2 {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.kind-rail {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: #2b3138;
+  border-bottom: 1px solid #2b3138;
+}
+
+.kind-rail button {
+  min-height: 46px;
+  border: 0;
+  background: #11161c;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.kind-rail button:hover,
+.kind-rail button:focus-visible {
+  background: #1a2129;
+}
+
+.kind-rail button.active {
+  background: #e8edf2;
+  color: #080a0d;
+}
+
+.prompt-field {
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+}
+
+.prompt-field > span {
+  color: #a9b3bd;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+textarea {
+  width: 100%;
+  min-height: 260px;
+  resize: vertical;
+  border: 1px solid #343d46;
+  outline: none;
+  padding: 16px;
+  color: #f4f7fa;
+  background: #090c10;
+  line-height: 1.55;
+}
+
+textarea:focus {
+  border-color: #8d99a6;
+}
+
+.bench-footer {
+  padding: 14px 18px;
+  border-top: 1px solid #2b3138;
+}
+
+@media (max-width: 640px) {
+  .shell {
+    width: min(100% - 16px, 1120px);
+    padding-top: 8px;
+  }
+
+  .masthead {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .kind-rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bench-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
