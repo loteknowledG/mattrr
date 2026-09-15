@@ -1,66 +1,63 @@
 # Mattrr
 
-**Mattrr is the semantic UI composition layer.**
+**Mattrr creates artifacts.**
 
-The goal is to give humans and AI one small, renderer-neutral language for describing interfaces without forcing the composer to think in HTML, SVG paths, React, CSS, or pixels.
+Mattrr is an independent artifact and component generator. Its output should remain useful without Mattrreal or Echo Mirage.
 
-## Working model
+Primary directions:
 
-```text
-intent
-  ↓
-Mattrr
-semantic UI description
-  ↓
-renderer / adapter
-  ├─ ASCII → plain text
-  ├─ SVG → vector markup
-  ├─ Web Components → custom elements
-  ├─ React → React components
-  └─ Solid / other targets
-```
+- ASCII / FIGlet-style generation
+- reusable generated components
+- generated text and content artifacts
+- code-generated UI pieces
+- renderer-neutral artifact contracts where useful
 
-A Mattrr composition should describe **what the interface means** — components, hierarchy, state, actions, bindings, layout relationships, and UX intent — while leaving the final rendering technology to a target adapter.
+Mattrr is **not** the Echo Mirage marquee formatting layer.
 
-Example concept:
-
-```ts
-{
-  type: "button",
-  role: "primary",
-  label: "LAUNCH",
-  shape: "octagon",
-  state: "ready"
-}
-```
-
-The ASCII renderer could turn that into text:
+## Mattrr / Mattrreal / Mechanica
 
 ```text
-╱────────────╲
-│   LAUNCH   │
-╲────────────╱
+Mattrr     -> creates artifacts and reusable parts
+Mattrreal  -> learns and generates human-facing UI
+Mechanica  -> the generated mechanical UI system Mattrreal produces
 ```
 
-An SVG renderer could produce vector geometry. A Web Component renderer could produce a custom element. The composer should not need to learn a different UX language for every output technology.
+Mattrreal may consume Mattrr artifacts, but **Mattrreal must not depend on Mattrr**.
 
-## Architectural boundary
+The full working architecture is preserved in [`docs/MATTRR-MATTRREAL-HANDOFF.md`](docs/MATTRR-MATTRREAL-HANDOFF.md).
 
-**Mattrr describes. Renderers realize.**
-
-Mattrr should stay independent of Lit, React, Solid, SVG, and Asciimorphism. Those are possible realization targets or design systems, not the semantic language itself.
-
-## Relationship to Mattrreal
-
-Current working distinction:
+## Current application stack
 
 ```text
-Mattrr     = what we compose
-Mattrreal  = how a composition becomes a real, usable interface
+SolidJS
+TypeScript
+Vite
+pnpm
+Effect
+GitHub Pages
 ```
 
-UXPad in Echo Mirage is expected to create/edit Mattrr compositions and preview or materialize them through Mattrreal.
+The first web shell is intentionally small: a Solid scratchpad/workbench and an initial typed artifact contract. We will grow generators and renderers behind explicit seams rather than baking one renderer into the core.
+
+## Development
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Production build:
+
+```bash
+pnpm build
+```
+
+GitHub Pages deployment is handled by `.github/workflows/pages.yml` after changes land on `main`.
+
+## ASCII font licensing
+
+`@ascii-kit/fonts` is **not installed in the runtime dependency graph**. It declares GPL-3.0, so font/rendering integration should stay isolated until the project chooses an explicit licensing strategy.
 
 ## Status
 
-Early architecture/design stage. The first task is to define the smallest useful Mattrr input/output contract before choosing implementation details.
+Early foundation. Current focus: establish the artifact model, scratchpad, generator seams, and renderer boundaries before adding machine-learning behavior.
