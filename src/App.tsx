@@ -1,7 +1,10 @@
+import figletFonts from "@ascii-kit/fonts";
 import { createMemo, createSignal } from "solid-js";
+import { AsciiMorphSelector } from "./components/AsciiMorphSelector";
 
 export default function App() {
   const [prompt, setPrompt] = createSignal("");
+  const [font, setFont] = createSignal("standard");
 
   const status = createMemo(() =>
     prompt().trim().length > 0 ? "READY TO FORGE" : "AWAITING MATERIAL",
@@ -24,6 +27,14 @@ export default function App() {
           <span>01</span>
           <h2 id="workbench-title">Scratchpad</h2>
         </div>
+        <div class="forge-controls">
+          <AsciiMorphSelector
+            label="FIGLET FONT"
+            value={font()}
+            options={figletFonts}
+            onChange={setFont}
+          />
+        </div>
 
         <label class="prompt-field">
           <span>Describe what Mattrr should make</span>
@@ -36,6 +47,7 @@ export default function App() {
 
         <footer class="bench-footer">
           <span>solid + typescript + effect</span>
+          <span>figlet / {font()}</span>
         </footer>
       </section>
     </main>

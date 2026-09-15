@@ -22,6 +22,7 @@ body {
 }
 
 button,
+select,
 textarea {
   font: inherit;
 }
@@ -124,6 +125,48 @@ h1 {
 .kind-rail button.active {
   background: #e8edf2;
   color: #080a0d;
+}
+
+.forge-controls {
+  padding: 18px 22px 0;
+}
+
+.asciimorph-selector {
+  display: inline-grid;
+  color: #a9b3bd;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+.asciimorph-cap,
+.asciimorph-body {
+  display: flex;
+  white-space: pre;
+}
+
+.asciimorph-body {
+  align-items: center;
+  color: #e8edf2;
+}
+
+.asciimorph-selector select {
+  appearance: none;
+  min-width: 205px;
+  border: 0;
+  outline: 0;
+  padding: 0 4px;
+  color: #f4f7fa;
+  background: transparent;
+  cursor: pointer;
+}
+
+.asciimorph-selector:focus-within {
+  color: #f4f7fa;
+}
+
+.asciimorph-selector option {
+  color: #f4f7fa;
+  background: #090c10;
 }
 
 .prompt-field {
